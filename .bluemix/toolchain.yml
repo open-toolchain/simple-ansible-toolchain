@@ -1,44 +1,77 @@
----
-name: "Ansible deploy to Bluemix"
-description: "Toolchain to deploy this application to Bluemix using Ansible"
-version: 0.1
-image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
-icon: data:image/svg+xml;base64,$file(icon.svg,base64)
-required:
- - deploy
- - sample-repo
+version: '2'
+default_locale: en
+locales:
+  $ref: locales.yml
+template:
+  name: Simple Ansible toolchain
+  description: >-
+    With this toolchain, you can develop and deploy a Cloud Foundry application using **Ansible**.
+    By default, the toolchain uses a sample Node.js "Hello World" app, or you
+    can link to your own GitHub repository. This toolchain is preconfigured for
+    continuous delivery, source control, issue tracking, and online editing.
 
-# Github repos
-sample-repo:
-  service_id: githubpublic
-  parameters:
-    repo_name: "{{name}}"
-    repo_url: https://github.com/IBMCloudDevOps/bluemix-php-sample
-    type: fork
-    has_issues: false
 
-# Pipelines
-sample-build:
-  service_id: pipeline
-  parameters:
-    name: "{{name}}"
-    ui-pipeline: true
-    configuration:
-     content: $file(pipeline.yml)
-     env:
-      SAMPLE_REPO: "sample-repo"
-      CF_APP_NAME: "{{deploy.parameters.prod-app-name}}"
-      PROD_SPACE_NAME: "{{deploy.parameters.prod-space}}"
-      PROD_ORG_NAME: "{{deploy.parameters.prod-organization}}"
-      PROD_REGION_ID: "{{deploy.parameters.prod-region}}"
-     execute: true
-    services: ["sample-repo"]
-  hidden: [form, description]
+    This toolchain uses tools that are part of the Continuous Delivery service.
+    If an instance of that service isn't already in your organization, when you
+    click **Create**, it is automatically added at no cost to you. For more
+    information and terms, see the [Bluemix
+    catalog](/catalog/services/continuous-delivery/).
 
-#Deployment
-deploy:
-  schema:
-    $ref: deploy.json
-  service-category: pipeline
-  parameters:
-    prod-app-name: "{{sample-repo.parameters.repo_name}}"
+
+    To get started, click **Create**.
+  header: '![](toolchain.svg?localize "header image")'
+  icon: icon.svg
+  required:
+    - sample-build
+    - sample-repo
+  info:
+    git url: >-
+      [https://github.com/open-toolchain/simple-toolchain.git](https://github.com/open-toolchain/simple-toolchain.git)
+    git branch: >-
+      [master](https://github.com/open-toolchain/simple-toolchain.git/tree/master)
+toolchain:
+  template:
+    getting_started: >-
+      **Your toolchain is ready!**
+
+
+      **Tip:** Commit a change to the Git repo to trigger a new build and deployment with Ansible.
+
+
+      For step-by-step instructions, see the [tutorial](coming soon) for this toolchain.
+  name: 'ansible-toolchain-{{timestamp}}'
+services:
+  sample-repo:
+    service_id: hostedgit
+    parameters:
+      repo_name: '{{toolchain.name}}'
+      repo_url: 'https://github.com/hmagph/node-hello-world'
+      type: clone
+      has_issues: true
+      enable_traceability: true
+  sample-build:
+    service_id: pipeline
+    parameters:
+      services:
+        - sample-repo
+      name: '{{toolchain.name}}'
+      ui-pipeline: true
+      configuration:
+        content:
+          $ref: pipeline.yml
+          $refType: text
+        env:
+          SAMPLE_REPO: sample-repo
+          CF_APP_NAME: '{{form.pipeline.parameters.prod-app-name}}'
+          PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
+          PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
+          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+        execute: true
+  webide:
+    service_id: orion
+form:
+  pipeline:
+    parameters:
+      prod-app-name: '{{services.sample-repo.parameters.repo_name}}'
+    schema:
+      $ref: deploy.json
