@@ -10,4 +10,4 @@
     - debug:
         var: app_hostname
     - name: CF Push Application
-      shell: "cf push app_hostname }}"
+      shell: "cf push app_hostname"
