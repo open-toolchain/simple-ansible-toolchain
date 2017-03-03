@@ -4,8 +4,7 @@
   hosts: localhost
   connection: local
   vars:
-    pipeline_id: "{{ lookup('env','PIPELINE_ID') | default('test-php-sample-1',true) }}"
-    app_hostname: "{{ lookup('env','APP_HOSTNAME') | default(pipeline_id,true) }}"
+    app_hostname: "{{ lookup('env','APP_HOSTNAME') }}"
   tasks:
     - debug:
         var: app_hostname
