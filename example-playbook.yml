@@ -1,4 +1,4 @@
-# Publish this application to bluemix using ansible
+# Publish this application to Bluemix using Ansible
 ---
 - name: Publish the app to Bluemix
   hosts: localhost
@@ -10,4 +10,4 @@
     - debug:
         var: app_hostname
     - name: CF Push Application
-      shell: "cf push -f manifest.yml -u none --hostname {{ app_hostname }}"
+      shell: "cf push app_hostname }}"
