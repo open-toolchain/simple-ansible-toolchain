@@ -1,21 +1,17 @@
-# Bluemix PHP App Sample
-The application repo that accompanies the recipe: [Run Ansible from your IBM Bluemix DevOps Pipelines](https://developer.ibm.com/recipes/tutorials/run-ansible-from-your-ibm-bluemix-devops-pipelines/)
+# Simple Ansible toolchain
+### Continuously deliver a Cloud Foundry app with Ansible
 
-## PHP Starter Overview
+This Hello World application uses Node.js and includes a DevOps toolchain that is preconfigured for continuous delivery using an Ansible playbook, source control, issue tracking, and online editing.
 
-The PHP Starter demonstrates a simple, reusable PHP web application.
+### To get started, click **Create toolchain**.
 
-## Run the app locally
+[![Deploy To Bluemix](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/open-toolchain/simple-ansible-toolchain)
 
-1. Download and extract [PHP](http://php.net/downloads.php)
-2. Add the extracted directory to your PATH environment variable
-3. Download and extract the starter code from the Bluemix UI
-4. cd into the app directory
-5. Run `php -S localhost:8000` to start the app using the built-in development web server
-6. Access the running app in a browser at http://localhost:8000
+---
+### Learn more
 
-## Create an IBM DevOps Services toolchain
+* [Step by step tutorial]() -- coming soon
+* Recipe:  [Run Ansible from your IBM Bluemix DevOps Pipelines](https://developer.ibm.com/recipes/tutorials/run-ansible-from-your-ibm-bluemix-devops-pipelines/)
+* [Getting started](https://bluemix.net/devops)
+* [Documentation](https://console.ng.bluemix.net/docs/services/ContinuousDelivery/index.html?pos=2)
 
-
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/?repository=https://github.com/hmagph/bluemix-php-sample)
- 
