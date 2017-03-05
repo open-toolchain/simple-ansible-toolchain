@@ -1,7 +1,7 @@
 # Simple Ansible toolchain
 ### Continuously deliver a Cloud Foundry app with Ansible
 
-This Hello World application uses Node.js and includes a DevOps toolchain that is preconfigured for continuous delivery using an Ansible playbook, source control, issue tracking, and online editing.
+This Bluemix DevOps toolchain is preconfigured for continuous delivery using an Ansible playbook, source control, issue tracking, and online editing. By default, it comes with a  Hello World application uses Node.js.
 
 ### To get started, click **Create toolchain**.
 
