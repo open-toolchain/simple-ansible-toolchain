@@ -5,7 +5,7 @@ This Bluemix DevOps toolchain is preconfigured for continuous delivery using an 
 
 ### To get started, click **Create toolchain**.
 
-[![Deploy To Bluemix](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/open-toolchain/simple-ansible-toolchain)
+[![Deploy To Bluemix](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/open-toolchain/simple-ansible-toolchain)
 
 ---
 ### Learn more
@@ -13,5 +13,5 @@ This Bluemix DevOps toolchain is preconfigured for continuous delivery using an 
 * [Step by step tutorial]() -- coming soon
 * Recipe:  [Run Ansible from your IBM Bluemix DevOps Pipelines](https://developer.ibm.com/recipes/tutorials/run-ansible-from-your-ibm-bluemix-devops-pipelines/)
 * [Getting started](https://bluemix.net/devops)
-* [Documentation](https://console.ng.bluemix.net/docs/services/ContinuousDelivery/index.html?pos=2)
+* [Documentation](https://console.bluemix.net/docs/services/ContinuousDelivery/index.html?pos=2)
 
